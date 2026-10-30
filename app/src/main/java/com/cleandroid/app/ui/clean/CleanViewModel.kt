@@ -44,13 +44,11 @@ class CleanViewModel(private val container: AppContainer) : ViewModel() {
         container.launchOp(container.app.getString(R.string.op_clean_scan)) {
             try {
                 container.cleanEngine.scan { group ->
-                    // Progressive: called on the engine thread as each group completes.
                     withContext(Dispatchers.Main) {
                         _state.update { s ->
                             s.copy(
                                 groups = s.groups + group,
-                                selected = if (group.defaultChecked) s.selected + group.id
-                                else s.selected
+                                selected = if (group.defaultChecked) s.selected + group.id else s.selected
                             )
                         }
                     }

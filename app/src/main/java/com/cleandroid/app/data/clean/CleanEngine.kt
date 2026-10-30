@@ -41,7 +41,7 @@ class CleanEngine(
     var lastScannedFiles: Int = 0
         private set
 
-    suspend fun scan(onGroup: (JunkGroup) -> Unit = {}): Long = withContext(Dispatchers.IO) {
+    suspend fun scan(onGroup: suspend (JunkGroup) -> Unit = {}): Long = withContext(Dispatchers.IO) {
         if (!Permissions.hasFullStorageAccess(context)) {
             lastScanGroups = emptyList()
             return@withContext 0L
@@ -99,7 +99,7 @@ class CleanEngine(
         fun sizeOf(files: List<File>): Long = files.sumOf { if (it.isFile) it.length() else 0L }
 
         val groups = mutableListOf<JunkGroup>()
-        fun addGroup(g: JunkGroup) {
+        suspend fun addGroup(g: JunkGroup) {
             groups.add(g)
             onGroup(g)
         }
