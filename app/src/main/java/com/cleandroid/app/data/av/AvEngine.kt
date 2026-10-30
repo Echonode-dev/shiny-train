@@ -2,7 +2,6 @@ package com.cleandroid.app.data.av
 
 import android.Manifest
 import android.accessibilityservice.AccessibilityService
-import android.app.admin.DevicePolicyManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageInfo
@@ -12,8 +11,8 @@ import com.cleandroid.app.R
 import com.cleandroid.app.di.AppContainer
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.yield
 import org.json.JSONObject
 import java.io.File
 import java.security.MessageDigest
@@ -95,8 +94,8 @@ class AvEngine(
 
             for (pkg in packages) {
                 i++
-                coroutineContext.ensureActive()
                 if (i % 5 == 0) {
+                    yield()
                     container.updateOp(
                         progress = i.toFloat() / packages.size,
                         label = context.getString(R.string.av_progress_apps, i, packages.size)
@@ -167,12 +166,14 @@ class AvEngine(
                 if (depth > 5 || count >= maxFiles) return
                 val children = dir.listFiles() ?: return
                 for (f in children) {
-                    coroutineContext.ensureActive()
                     if (f.isDirectory) {
                         walk(f, depth + 1)
                     } else if (f.isFile && f.length() in 1..MAX_SCAN_FILE) {
                         count++
-                        if (count % 20 == 0) container.updateOp()
+                        if (count % 20 == 0) {
+                            yield()
+                            container.updateOp()
+                        }
                         val h = sha256(f) ?: continue
                         val sig = sigByHash[h] ?: continue
                         out.add(
@@ -203,7 +204,8 @@ class AvEngine(
     }
 
     private fun deviceAdminPackages(pm: PackageManager): Set<String> = try {
-        pm.queryBroadcastReceivers(Intent(DevicePolicyManager.ACTION_DEVICE_ADMIN_ENABLED), 0)
+        val action = "android.app.action.DEVICE_ADMIN_ENABLED"
+        pm.queryBroadcastReceivers(Intent(action), 0)
             .mapNotNull { it.activityInfo?.packageName }
             .toSet()
     } catch (_: Exception) {
@@ -268,7 +270,7 @@ class AvEngine(
                 md.update(buf, 0, n)
                 total += n
                 if (total and (64L * 1024 * 1024 - 1) == 0L) {
-                    coroutineContext.ensureActive()
+                    yield()
                 }
             }
         }

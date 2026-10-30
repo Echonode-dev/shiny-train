@@ -49,11 +49,11 @@ class BloatFragment : Fragment() {
         binding.chipGroup.setOnCheckedStateChangeListener { group, _ ->
             vm.setFilter(
                 when (group.checkedChipIds.firstOrNull()) {
-                    R.id.chipAds -> BloatViewModel.FILTER_ADS
-                    R.id.chipAnalytics -> BloatViewModel.FILTER_ANALYTICS
-                    R.id.chipOem -> BloatViewModel.FILTER_OEM
-                    R.id.chipCarrier -> BloatViewModel.FILTER_CARRIER
-                    R.id.chipOptional -> BloatViewModel.FILTER_OPTIONAL
+                    R.id.chip_ads -> BloatViewModel.FILTER_ADS
+                    R.id.chip_analytics -> BloatViewModel.FILTER_ANALYTICS
+                    R.id.chip_oem -> BloatViewModel.FILTER_OEM
+                    R.id.chip_carrier -> BloatViewModel.FILTER_CARRIER
+                    R.id.chip_optional -> BloatViewModel.FILTER_OPTIONAL
                     else -> BloatViewModel.FILTER_ALL
                 }
             )
