@@ -12,6 +12,7 @@ import com.cleandroid.app.R
 import com.cleandroid.app.di.AppContainer
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
@@ -95,7 +96,7 @@ class AvEngine(
 
             for (pkg in packages) {
                 i++
-                coroutineContext.ensureActive()
+                currentCoroutineContext().ensureActive()
                 if (i % 5 == 0) {
                     container.updateOp(
                         progress = i.toFloat() / packages.size,
@@ -167,7 +168,7 @@ class AvEngine(
                 if (depth > 5 || count >= maxFiles) return
                 val children = dir.listFiles() ?: return
                 for (f in children) {
-                    coroutineContext.ensureActive()
+                    currentCoroutineContext().ensureActive()
                     if (f.isDirectory) {
                         walk(f, depth + 1)
                     } else if (f.isFile && f.length() in 1..MAX_SCAN_FILE) {
@@ -203,7 +204,7 @@ class AvEngine(
     }
 
     private fun deviceAdminPackages(pm: PackageManager): Set<String> = try {
-        pm.queryBroadcastReceivers(Intent(DevicePolicyManager.ACTION_DEVICE_ADMIN_ENABLED), 0)
+        pm.queryBroadcastReceivers(Intent("android.app.action.DEVICE_ADMIN_ENABLED"), 0)
             .mapNotNull { it.activityInfo?.packageName }
             .toSet()
     } catch (_: Exception) {
@@ -268,7 +269,7 @@ class AvEngine(
                 md.update(buf, 0, n)
                 total += n
                 if (total and (64L * 1024 * 1024 - 1) == 0L) {
-                    coroutineContext.ensureActive()
+                    currentCoroutineContext().ensureActive()
                 }
             }
         }
