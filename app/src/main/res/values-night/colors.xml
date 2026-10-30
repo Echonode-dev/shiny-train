@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark navy + teal, SD Maid-style -->
+    <color name="background">#0B1220</color>
+    <color name="surface">#121B2E</color>
+    <color name="surfaceVariant">#1E293B</color>
+    <color name="textPrimary">#E2E8F0</color>
+    <color name="textSecondary">#94A3B8</color>
+    <color name="primary">#2DD4BF</color>
+    <color name="onPrimary">#04211E</color>
+    <color name="primaryContainer">#134E4A</color>
+    <color name="onPrimaryContainer">#99F6E4</color>
+    <color name="secondary">#22D3EE</color>
+    <color name="accent">#2DD4BF</color>
+    <color name="error">#F87171</color>
+
+    <color name="riskHigh">#F87171</color>
+    <color name="riskMedium">#FBBF24</color>
+    <color name="riskLow">#34D399</color>
+</resources>

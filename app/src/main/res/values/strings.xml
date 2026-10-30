@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CleanDroid</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_bloat">Bloatware</string>
+    <string name="nav_scan">Antivirus</string>
+    <string name="nav_clean">Cleaner</string>
+    <string name="nav_shred">Shredder</string>
+
+    <!-- Generic -->
+    <string name="btn_cancel">Cancel</string>
+    <string name="ops_starting">Starting…</string>
+    <string name="ops_channel_name">Operations</string>
+
+    <!-- Operation labels (notifications) -->
+    <string name="op_bloat">Scanning installed apps…</string>
+    <string name="op_scan_apps">Scanning apps for threats…</string>
+    <string name="op_scan_files">Checking files…</string>
+    <string name="op_clean_scan">Scanning storage for junk…</string>
+    <string name="op_clean_run">Cleaning junk…</string>
+    <string name="op_shred_file">Shredding file…</string>
+    <string name="op_shred_dir">Shredding folder…</string>
+    <string name="op_wipe_free">Wiping free space…</string>
+    <string name="op_ram">Freeing memory…</string>
+    <string name="av_progress_apps">%1$d / %2$d apps</string>
+
+    <!-- Categories -->
+    <string name="cat_ads">Ads framework</string>
+    <string name="cat_analytics">Analytics / tracking</string>
+    <string name="cat_oem">OEM bloat</string>
+    <string name="cat_carrier">Carrier bloat</string>
+    <string name="cat_optional">Optional</string>
+
+    <!-- Risk levels -->
+    <string name="risk_recommended">Safe to remove</string>
+    <string name="risk_check_first">Check first</string>
+    <string name="risk_optional">Your choice</string>
+
+    <!-- Home -->
+    <string name="home_greeting">CleanDroid</string>
+    <string name="home_subtitle">Offline cleaner &amp; bloatware scanner</string>
+    <string name="home_storage_title">Storage</string>
+    <string name="home_storage_total">of %1$s used</string>
+    <string name="home_storage_free">%1$s free</string>
+    <string name="home_ram_title">Memory (RAM)</string>
+    <string name="home_ram_value">%1$s of %2$s used</string>
+    <string name="home_ram_low">System is low on memory</string>
+    <string name="home_ram_working">Asking apps to stop…</string>
+    <string name="home_ram_done">Asked %1$d apps to stop</string>
+    <string name="home_btn_ram">Free memory</string>
+    <string name="home_btn_storage">Storage settings</string>
+    <string name="home_stats_title">Last results</string>
+    <string name="home_stat_bloat">Bloatware</string>
+    <string name="home_stat_junk">Junk found</string>
+    <string name="home_stat_threats">Threats</string>
+    <string name="home_not_scanned">Not scanned</string>
+    <string name="home_disclaimer_title">Honest limits</string>
+    <string name="home_disclaimer_body">CleanDroid is 100%% offline: it has no INTERNET permission, so nothing can leave your device. The shredder overwrites files 3× but no userspace app can guarantee physical erasure on flash storage (journaling, wear leveling). The antivirus layer flags risky permission combinations and known APK hashes — it is a review aid, not a full commercial AV engine. Bloatware "removal" for pure system apps means Android\'s Disable function.</string>
+
+    <!-- Permission banners -->
+    <string name="banner_access_text">File access is needed to scan and clean storage. Tap to grant "All files access" (Android 11+) or storage permission.</string>
+    <string name="banner_usage_text">Optional: grant "Usage access" to show per-app storage sizes.</string>
+    <string name="banner_btn">Grant</string>
+
+    <!-- Bloatware -->
+    <string name="bloat_title">Bloatware</string>
+    <string name="bloat_scanning">Scanning %1$d apps…</string>
+    <string name="bloat_summary_all">%1$d of %2$d installed apps flagged</string>
+    <string name="bloat_summary_filter">%1$d apps in this category</string>
+    <string name="bloat_empty">Nothing flagged. Your device looks clean.</string>
+    <string name="bloat_retry">Scan again</string>
+    <string name="bloat_uninstall">Uninstall</string>
+    <string name="bloat_info">App info</string>
+    <string name="filter_all">All</string>
+    <string name="filter_ads">Ads</string>
+    <string name="filter_analytics">Trackers</string>
+    <string name="filter_oem">OEM</string>
+    <string name="filter_carrier">Carrier</string>
+    <string name="filter_optional">Optional</string>
+
+    <!-- Antivirus -->
+    <string name="scan_title">Antivirus</string>
+    <string name="scan_desc">100% offline scan: APK signature hashes + risky permission combinations.</string>
+    <string name="scan_apps">Scan apps</string>
+    <string name="scan_files">Check Downloads</string>
+    <string name="scan_working">Working…</string>
+    <string name="scan_result_clean">No threats found</string>
+    <string name="scan_result_threats">Threats found</string>
+    <string name="scan_result_detail">%1$d item(s) flagged. Review each finding below.</string>
+    <string name="scan_empty">Run a scan to see results.</string>
+    <string name="sev_high">HIGH RISK</string>
+    <string name="sev_medium">MEDIUM RISK</string>
+    <string name="threat_uninstall">Uninstall</string>
+    <string name="threat_shred">Shred file</string>
+    <string name="threat_info">Info</string>
+    <string name="av_reason_sms_overlay">Requests SMS access + draws over other apps (classic fraud combo)</string>
+    <string name="av_reason_access_sms">Uses Accessibility + reads SMS/call log (data theft pattern)</string>
+    <string name="av_reason_access_installer">Uses Accessibility + can install apps (remote control pattern)</string>
+    <string name="av_reason_admin_access">Active device admin + Accessibility (hard-to-remove combo)</string>
+    <string name="av_reason_sideload">Installs other apps from a non-Play-Store source</string>
+    <string name="av_reason_sideload_unknown">Installs other apps from an unknown source</string>
+    <string name="av_reason_calllog_sms">Reads call log + sends SMS (premium-fraud pattern)</string>
+    <string name="av_reason_query_sms">Enumerates all apps + SMS + precise location (surveillance pattern)</string>
+    <string name="av_reason_signature">Hash matches known threat: %1$s</string>
+
+    <!-- Cleaner -->
+    <string name="clean_title">Storage cleaner</string>
+    <string name="clean_desc">Finds well-known junk in shared storage. The Android/ system tree is never touched.</string>
+    <string name="clean_scan">Scan storage</string>
+    <string name="clean_rescan">Scan again</string>
+    <string name="clean_scanning">Scanning…</string>
+    <string name="clean_working">Cleaning…</string>
+    <string name="clean_clean_button">Clean (%1$s)</string>
+    <string name="clean_done">Freed %1$s</string>
+    <string name="clean_empty">Nothing to clean yet. Run a scan first.</string>
+    <string name="junk_meta">%1$d files · %2$s</string>
+    <string name="clean_group_thumbs">Thumbnail cache</string>
+    <string name="clean_group_thumbs_desc">Old image thumbnails in DCIM/.thumbnails (regenerated automatically)</string>
+    <string name="clean_group_apks">Stray installer files</string>
+    <string name="clean_group_apks_desc">Leftover .apk files in shared storage</string>
+    <string name="clean_group_logs">Log &amp; temp files</string>
+    <string name="clean_group_logs_desc">.log / .tmp / .bak files smaller than 50 MB</string>
+    <string name="clean_group_empty">Empty folders</string>
+    <string name="clean_group_empty_desc">Directories without any content</string>
+    <string name="clean_group_old">Old downloads (90+ days)</string>
+    <string name="clean_group_old_desc">Files in Downloads untouched for 90+ days. Unchecked by default — review before deleting.</string>
+    <string name="clean_group_cache">Cleaner\'s own cache</string>
+    <string name="clean_group_cache_desc">Cache of this app (always safe)</string>
+
+    <!-- Shredder -->
+    <string name="shred_title">Shredder</string>
+    <string name="shred_desc">Overwrite-then-delete: 3 passes (zeros, ones, random) with fsync, then rename &amp; unlink.</string>
+    <string name="shred_note">Note: on flash storage (F2FS/ext4 journaling) no userspace tool can guarantee physical NAND erasure. This is as permanent as Android allows.</string>
+    <string name="shred_confirm_title">Shred permanently?</string>
+    <string name="shred_confirm_file">"%1$s" will be overwritten 3 times and deleted. This cannot be undone.</string>
+    <string name="shred_confirm_folder">Every file inside "%1$s" will be overwritten 3 times and deleted. This cannot be undone.</string>
+    <string name="shred_confirm_yes">Shred</string>
+    <string name="shred_done_one">File shredded and deleted</string>
+    <string name="shred_done_many">%1$d files shredded</string>
+    <string name="shred_failed">Shredding failed</string>
+    <string name="shred_empty">Folder is empty</string>
+    <string name="dir_download">Download</string>
+    <string name="dir_dcim">DCIM</string>
+    <string name="dir_documents">Documents</string>
+    <string name="dir_pictures">Pictures</string>
+    <string name="content_desc_up">Up one level</string>
+    <string name="fs_shred_file">Shred</string>
+    <string name="fs_shred_folder">Shred folder</string>
+    <string name="fs_folder">Folder</string>
+    <string name="wipe_card_title">Wipe free space</string>
+    <string name="wipe_card_desc">Fill all free space with random data once, then delete the filler. Helps flush residual blocks of previously deleted files.</string>
+    <string name="wipe_btn">Wipe free space</string>
+    <string name="wipe_confirm_title">Wipe free space?</string>
+    <string name="wipe_confirm_msg">This writes random data until storage is full, then deletes it. Can take several minutes.</string>
+    <string name="wipe_confirm_yes">Start</string>
+    <string name="wipe_done">Overwrote %1$s of free space</string>
+</resources>

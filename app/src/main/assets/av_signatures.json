@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "updated": "2026-10-30",
+  "description": "Offline APK/file signature database. Entries are SHA-256 hashes of full files, matched against installed APK files and files under Downloads. The bundled list is intentionally small and verifiable: it contains the industry-standard EICAR anti-virus test signature so the detection pipeline can be proven to work with zero risk. Do NOT hand-craft hashes of unknown origin; import hashes only from sources you trust (see SECURITY.md for the exact import format).",
+  "signatures": [
+    {
+      "sha256": "275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f",
+      "name": "EICAR antivirus test file",
+      "severity": 2,
+      "note": "Standard anti-virus test string (EICAR-STANDARD-ANTIVIRUS-TEST-FILE). Harmless by design. Any file whose entire content is this string is flagged so you can verify the scanner pipeline end-to-end."
+    }
+  ]
+}
