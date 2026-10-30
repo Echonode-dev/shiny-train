@@ -33,7 +33,13 @@ jobs:
           WRAPPER="$(find . -type f -name gradlew -not -path './.git/*' -print -quit)"
 
           if [ -z "$WRAPPER" ]; then
-            echo "Could not find gradlew. Add the Gradle wrapper to your repository."
+            echo "Gradle wrapper not found. Generating it with Gradle..."
+            gradle wrapper --gradle-version 8.13
+            WRAPPER="$(find . -type f -name gradlew -not -path './.git/*' -print -quit)"
+          fi
+
+          if [ -z "$WRAPPER" ]; then
+            echo "Could not find or generate gradlew."
             exit 1
           fi
 
