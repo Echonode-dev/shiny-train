@@ -21,12 +21,12 @@ import kotlinx.coroutines.withContext
 data class BloatUiState(
     val loading: Boolean = false,
     val apps: List<BloatApp> = emptyList(),
-    val filter: String = FILTER_ALL,
+    val filter: String = BloatViewModel.FILTER_ALL,
     val totalScanned: Int = 0,
     val error: String? = null
 ) {
     val visibleApps: List<BloatApp>
-        get() = if (filter == FILTER_ALL) apps else apps.filter { it.entry.category == filter }
+        get() = if (filter == BloatViewModel.FILTER_ALL) apps else apps.filter { it.entry.category == filter }
 }
 
 class BloatViewModel(private val container: AppContainer) : ViewModel() {

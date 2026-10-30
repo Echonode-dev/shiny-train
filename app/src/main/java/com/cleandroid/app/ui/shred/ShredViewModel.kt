@@ -148,8 +148,8 @@ class ShredViewModel(private val container: AppContainer) : ViewModel() {
     }
 
     private fun listEntries(dir: File): List<File> = try {
-        val children = dir.listFiles() ?: emptyList()
-        children.sortedWith(
+        val children = dir.listFiles() ?: emptyArray()
+        children.toList().sortedWith(
             compareByDescending<File> { it.isDirectory }.thenBy { it.name.lowercase() }
         )
     } catch (_: Exception) {

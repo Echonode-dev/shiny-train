@@ -3,6 +3,7 @@ package com.cleandroid.app.core
 import android.app.usage.StorageStatsManager
 import android.content.Context
 import android.os.Environment
+import android.os.Process
 import android.os.StatFs
 import android.os.storage.StorageManager
 
@@ -29,7 +30,8 @@ object StorageUtils {
      */
     fun packageSize(context: Context, packageName: String): Long = try {
         val stats = context.getSystemService(Context.STORAGE_STATS_SERVICE) as StorageStatsManager
-        val s = stats.queryStatsForUid(StorageManager.UUID_DEFAULT, packageName)
+        val user = Process.myUserHandle()
+        val s = stats.queryStatsForPackage(StorageManager.UUID_DEFAULT, packageName, user)
         s.appBytes + s.dataBytes + s.cacheBytes
     } catch (_: Exception) {
         -1L
